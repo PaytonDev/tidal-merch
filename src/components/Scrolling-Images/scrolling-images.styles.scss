@@ -1,0 +1,63 @@
+.image-list {
+  list-style: none;
+  min-width: 500px;
+  height: calc(100vh - 40px);
+  -webkit-animation: scrollUp 15s linear infinite;
+  animation: scrollUp 15s linear infinite;
+  margin: 0;
+  li {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+.image-list2 {
+  animation-delay: 8s;
+}
+
+.scrolling-container {
+  width: 100%;
+  height: 100%;
+}
+
+.second-img,
+.sixth-img {
+  margin-left: 30vw;
+}
+
+.third-img,
+.seventh-img {
+  margin-left: 5vw;
+}
+
+.fourth-img,
+.eighth-img {
+  margin-left: 35vw;
+}
+
+.fifth-img,
+.ninth-img {
+  margin-left: 15vw;
+}
+
+@-webkit-keyframes scrollUp {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-900px);
+    transform: translateY(-900px);
+  }
+}
+
+@keyframes scrollUp {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-945px);
+    transform: translateY(-945px);
+  }
+}
