@@ -36,14 +36,6 @@ const SignInSignUpForm = () => {
         </div>
       </div>
       {signInActive ? <SignIn /> : <SignUp />}
-      <Button
-        bgColor="light"
-        textColor="dark"
-        type="submit"
-        className="sign-in-sign-up-form-btn"
-      >
-        {signInActive ? 'Sign In' : 'Sign Up'}
-      </Button>
     </div>
   )
 }

@@ -1,6 +1,11 @@
 import './sign-up.styles.scss'
 import { useState } from 'react'
 import FormInput from '../../Form-Input/form-input.component'
+import {
+  auth,
+  createUserProfileDocument,
+} from '../../../firebase/firebase.utils'
+import Button from '../../Button/Button.component'
 
 const SignUp = () => {
   const [inputValue, setInputValue] = useState({
@@ -10,7 +15,31 @@ const SignUp = () => {
     confirmPassword: '',
   })
 
-  const handleSubmit = () => {}
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
+
+    const { username, email, password, confirmPassword } = inputValue
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match')
+      return
+    }
+
+    try {
+      const user = await auth.createUserWithEmailAndPassword(email, password)
+
+      await createUserProfileDocument(user, { username })
+
+      setInputValue({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+      })
+    } catch (err: any) {
+      console.log('Authentication Error', err)
+    }
+  }
 
   const handleChange = (e: any) => {
     const value = e.target.value
@@ -55,6 +84,14 @@ const SignUp = () => {
           type="password"
           value={inputValue.confirmPassword}
         />
+        <Button
+          bgColor="light"
+          textColor="dark"
+          type="submit"
+          className="sign-in-sign-up-form-btn"
+        >
+          Sign Up
+        </Button>
       </form>
     </div>
   )

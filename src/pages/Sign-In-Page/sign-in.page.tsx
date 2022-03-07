@@ -1,15 +1,11 @@
-import './home.styles.scss'
-import Logo from '../components/Logo/Logo.component'
-import Button from '../components/Button/Button.component'
-import ScrollingImages from '../components/Scrolling-Images/scrolling-images.component'
-import SignInSignUpForm from '../components/Sign-In-Sign-Up-Form/sign-in-sign-up-form.component'
-import { signInWithGoogle } from '../firebase/firebase.utils'
+import './sign-in-page.styles.scss'
+import Logo from '../../components/Logo/Logo.component'
+import Button from '../../components/Button/Button.component'
+import ScrollingImages from '../../components/Scrolling-Images/scrolling-images.component'
+import SignInSignUpForm from '../../components/Sign-In-Sign-Up-Form/sign-in-sign-up-form.component'
+import { signInWithGoogle } from '../../firebase/firebase.utils'
 
-const Home = () => {
-  const sanityClick = () => {
-    console.log('clicked')
-  }
-
+const SignInSignUp = () => {
   return (
     <div className="home">
       <div className="container">
@@ -46,4 +42,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default SignInSignUp
