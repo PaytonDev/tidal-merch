@@ -1,37 +1,41 @@
 import './sign-in.styles.scss'
 import React, { useState } from 'react'
+import { signInAuthUserWithEmailAndPassword } from '../../../firebase/firebase.utils'
 import FormInput from '../../Form-Input/form-input.component'
-import { auth } from '../../../firebase/firebase.utils'
 import Button from '../../Button/Button.component'
 
+const defaultInput = { email: '', password: '' }
 const SignIn: React.FC<React.HTMLProps<HTMLDivElement>> = () => {
-  const [inputValue, setInputValue] = useState({
-    email: '',
-    password: '',
-  })
+  const [inputValue, setInputValue] = useState(defaultInput)
+
+  const { email, password } = inputValue
+
+  const resetFormFields = () => setInputValue(defaultInput)
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
-    const { email, password } = inputValue
-
-    setInputValue({ email: '', password: '' })
-
     try {
-      await auth.signInWithEmailAndPassword(email, password)
-
-      setInputValue({ email: '', password: '' })
+      const response = await signInAuthUserWithEmailAndPassword(email, password)
+      console.log(response)
+      resetFormFields()
     } catch (err: any) {
-      console.error('Something went wrong with Sign In', err)
+      switch (err.code) {
+        case 'auth/wrong-password':
+          alert('incorrect password')
+          break
+        case 'auth/user-not-found':
+          alert('np iser associated with this email')
+          break
+        default:
+          console.warn(err)
+      }
     }
   }
 
-  const handleChange = (e: any) => {
-    const value = e.target.value
-    setInputValue({
-      [e.target.name]: value,
-      ...inputValue,
-    })
+  const handleChange = (e: Event) => {
+    const { value, name } = e.target as HTMLInputElement
+    setInputValue({ ...inputValue, [name]: value })
   }
 
   return (
@@ -45,7 +49,7 @@ const SignIn: React.FC<React.HTMLProps<HTMLDivElement>> = () => {
               name="email"
               required
               type="text"
-              value={inputValue.email}
+              value={email}
             />
             <FormInput
               handleChange={handleChange}
@@ -53,7 +57,7 @@ const SignIn: React.FC<React.HTMLProps<HTMLDivElement>> = () => {
               name="password"
               required
               type="password"
-              value={inputValue.password}
+              value={password}
             />
           </div>
         </div>

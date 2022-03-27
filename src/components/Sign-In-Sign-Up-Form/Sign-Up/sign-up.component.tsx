@@ -3,22 +3,26 @@ import { useState } from 'react'
 import FormInput from '../../Form-Input/form-input.component'
 import {
   auth,
-  createUserProfileDocument,
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
 } from '../../../firebase/firebase.utils'
 import Button from '../../Button/Button.component'
 
+const defaultInput = {
+  email: '',
+  password: '',
+  username: '',
+  confirmPassword: '',
+}
+
 const SignUp = () => {
-  const [inputValue, setInputValue] = useState({
-    email: '',
-    password: '',
-    username: '',
-    confirmPassword: '',
-  })
+  const [inputValue, setInputValue] = useState(defaultInput)
+  const { username, email, password, confirmPassword } = inputValue
+
+  const resetFormFields = () => setInputValue(defaultInput)
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
-
-    const { username, email, password, confirmPassword } = inputValue
 
     if (password !== confirmPassword) {
       alert('Passwords do not match')
@@ -26,27 +30,22 @@ const SignUp = () => {
     }
 
     try {
-      const user = await auth.createUserWithEmailAndPassword(email, password)
+      const user = await createAuthUserWithEmailAndPassword(email, password)
 
-      await createUserProfileDocument(user, { username })
-
-      setInputValue({
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      })
+      await createUserDocumentFromAuth(user)
+      resetFormFields()
     } catch (err: any) {
-      console.log('Authentication Error', err)
+      if (err.code === 'auth/email-already-in-use') {
+        alert('Cannot create user, email already in use')
+      } else {
+        console.log('user creation encountered an error', err)
+      }
     }
   }
 
   const handleChange = (e: any) => {
-    const value = e.target.value
-    setInputValue({
-      ...inputValue,
-      [e.target.name]: value,
-    })
+    const { name, value } = e.target as HTMLInputElement
+    setInputValue({ ...inputValue, [name]: value })
   }
 
   return (
@@ -58,7 +57,7 @@ const SignUp = () => {
           name="username"
           required
           type="text"
-          value={inputValue.username || ''}
+          value={username}
         />
         <FormInput
           handleChange={handleChange}
@@ -66,7 +65,7 @@ const SignUp = () => {
           name="email"
           required
           type="text"
-          value={inputValue.email || ''}
+          value={email}
         />
         <FormInput
           handleChange={handleChange}
@@ -74,7 +73,7 @@ const SignUp = () => {
           name="password"
           required
           type="password"
-          value={inputValue.password}
+          value={password}
         />
         <FormInput
           handleChange={handleChange}
@@ -82,7 +81,7 @@ const SignUp = () => {
           name="confirmPassword"
           required
           type="password"
-          value={inputValue.confirmPassword}
+          value={confirmPassword}
         />
         <Button
           bgColor="light"
