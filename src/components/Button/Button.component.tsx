@@ -11,6 +11,7 @@ interface ButtonProps {
   bgColor: 'dark' | 'light' | 'accent'
   textColor: 'dark' | 'light' | 'accent'
   className?: string
+  onClick?: () => void
 }
 
 const Button: React.FC<ButtonProps & React.HTMLProps<HTMLButtonElement>> = (
@@ -22,6 +23,7 @@ const Button: React.FC<ButtonProps & React.HTMLProps<HTMLButtonElement>> = (
       backgroundColor: colors[props.bgColor],
       color: colors[props.textColor],
     }}
+    onClick={props.onClick}
   >
     {props.children}
   </button>
