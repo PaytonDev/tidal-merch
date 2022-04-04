@@ -1,0 +1,23 @@
+@import '../../styles/colors.styles.scss';
+
+.banner-image-container {
+  position: absolute;
+  overflow: hidden;
+  height: 70vh;
+  width: 100%;
+}
+
+.images {
+  height: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.banner-image {
+  height: 100%;
+  width: auto;
+}
+
+.darken {
+  filter: brightness(50%);
+}

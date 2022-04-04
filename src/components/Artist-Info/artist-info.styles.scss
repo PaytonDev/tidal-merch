@@ -1,0 +1,83 @@
+@import '../../styles/colors.styles.scss';
+
+.artist-info {
+  font-family: 'Keep Calm';
+  position: relative;
+  height: 100%;
+  max-height: 220px;
+  padding: 0 50px;
+}
+
+.artist-desc {
+  .artist-name {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  .artist-attr {
+    margin-bottom: 10px;
+  }
+  margin-bottom: 30px;
+}
+
+.music-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondary-btns {
+  color: $primary;
+
+  display: flex;
+  .sec-btn {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    transition: opacity 0.4s;
+    cursor: pointer;
+  }
+  .sec-text {
+    font-size: 12px;
+  }
+  .sec-icon {
+    height: 16px;
+    width: 16px;
+    margin: 10px auto;
+  }
+}
+
+.play-btn,
+.shuffle-btn {
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  margin-right: 10px;
+  transition: opacity 0.4s;
+}
+
+.play-btn:hover,
+.shuffle-btn:hover,
+.sec-btn:hover {
+  opacity: 0.5;
+}
+
+.btn-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  .play-icon,
+  .shuffle-icon {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+  }
+}
+
+.info-wrapper {
+  background: linear-gradient(rgba(255, 0, 0, 0), rgba(232, 230, 227, 0.5));
+  position: absolute;
+  bottom: 30%;
+  height: 30%;
+  width: 100%;
+}

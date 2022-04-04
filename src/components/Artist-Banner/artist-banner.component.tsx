@@ -1,27 +1,16 @@
 import './artist-banner.styles.scss'
-import Banner from '../../assets/images/Kehlani-banner.jpg'
+import BannerImage from '../Banner-Image/banner-image.component'
+import ArtistInfo from '../Artist-Info/artist-info.component'
 
 const ArtistBanner = () => {
   // useRef to find height of parent element then render the overlay
   return (
     <div className="banner">
-      <div className="banner-image-container">
-        <div className="images">
-          <img
-            src={Banner}
-            alt="artist-banner"
-            className="banner-image darken"
-          />
-          <img src={Banner} alt="artist-banner" className="banner-image" />
-          <img
-            src={Banner}
-            alt="artist-banner"
-            className="banner-image darken"
-          />
-        </div>
-
-        <div className="artist-info"></div>
-      </div>
+      <BannerImage />
+      <ArtistInfo
+        artistName="Kehlani"
+        artistAttr="Artist, Songwriter, Performer, Producer, Engineer"
+      />
     </div>
   )
 }

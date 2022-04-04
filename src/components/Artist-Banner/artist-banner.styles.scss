@@ -1,34 +1,9 @@
 @import '../../styles/colors.styles.scss';
 
 .banner {
-  height: 70vh;
-  background-color: $secondary;
-}
-
-.banner-image-container {
-  overflow: hidden;
-  height: 100%;
-}
-
-.images {
-  height: 100%;
-  justify-content: center;
   display: flex;
-}
-
-.banner-image {
-  height: 100%;
-  width: auto;
-}
-
-.darken {
-  filter: brightness(50%);
-}
-
-.artist-info {
-  position: absolute;
-  display: grid;
-  top: 0;
-  right: 0;
-  background-color: $primary-text;
+  height: 70vh;
+  width: 100%;
+  max-width: 100vw;
+  background-color: $secondary;
 }
