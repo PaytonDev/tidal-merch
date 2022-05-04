@@ -1,0 +1,48 @@
+@import '../../styles/colors.styles.scss';
+
+.music-table-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.music-table {
+  img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.table-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.top-tracks-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top-tracks,
+.view-all {
+  padding: 0 16px;
+}
+
+.top-tracks {
+  font-size: 18px;
+}
+
+.view-all {
+  p {
+    cursor: pointer;
+    color: #cdc8c2;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  text-transform: uppercase;
+}

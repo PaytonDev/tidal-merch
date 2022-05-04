@@ -1,0 +1,27 @@
+@import '../../styles/colors.styles.scss';
+
+.artist-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.artist-content-nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  button {
+    background-color: transparent;
+    color: $headers;
+    border: none;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-family: 'Keep Calm';
+    margin: 20px 50px;
+    cursor: pointer;
+  }
+  button:hover {
+    color: $primary-text;
+  }
+}
