@@ -5,7 +5,7 @@ import ProductCarousel from '../../components/Product-Carousel/product-carousel.
 import { artistContent } from './artist-content.data'
 
 interface ArtistContentProps {}
-// fix video carousel bug
+// Add Tickets Carousel and toggle for music vs tickets
 
 const ArtistContent = () => {
   const { albums, singles, videos } = artistContent
