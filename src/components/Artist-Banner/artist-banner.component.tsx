@@ -3,7 +3,6 @@ import BannerImage from '../Banner-Image/banner-image.component'
 import ArtistInfo from '../Artist-Info/artist-info.component'
 
 const ArtistBanner = () => {
-  // useRef to find height of parent element then render the overlay
   return (
     <div className="banner">
       <BannerImage />

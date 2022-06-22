@@ -4,12 +4,14 @@
   font-family: 'Keep Calm';
   position: relative;
   height: 100%;
+  width: 100%;
   max-height: 220px;
-  padding: 0 50px;
-  bottom: 50px;
+
+  bottom: 0;
 }
 
 .artist-desc {
+  padding: 0 50px;
   .artist-name {
     font-size: 36px;
     margin-bottom: 10px;
@@ -23,6 +25,7 @@
 .music-btns {
   display: flex;
   justify-content: space-between;
+  padding: 0 50px;
 }
 
 .secondary-btns {
@@ -75,8 +78,8 @@
 
 .info-wrapper {
   background: linear-gradient(rgba(255, 0, 0, 0), rgba(232, 230, 227, 0.5));
-  position: relative;
-  top: 350px;
-  height: 30%;
+  position: absolute;
+  bottom: 0;
+  height: 210px;
   width: 100%;
 }

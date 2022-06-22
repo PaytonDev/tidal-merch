@@ -12,7 +12,6 @@ const App = () => {
   const dispatch = useAppDispatch()
   const auth = getAuth()
   const user = useAppSelector((state) => state.auth.currentUser)
-  console.log(user)
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {

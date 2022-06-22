@@ -5,7 +5,8 @@ import ProductCarousel from '../../components/Product-Carousel/product-carousel.
 import { artistContent } from './artist-content.data'
 
 interface ArtistContentProps {}
-// Add Tickets Carousel and toggle for music vs tickets
+
+// TODO: Add Tickets Carousel and toggle for music vs tickets
 
 const ArtistContent = () => {
   const { albums, singles, videos } = artistContent
@@ -18,7 +19,10 @@ const ArtistContent = () => {
       <MusicTable />
       <ProductCarousel show={5} skip={3} title="Albums">
         {albums.map((album, idx) => (
-          <div className={`carousel-img ${idx === 0 ? 'first' : ''}`}>
+          <div
+            className={`carousel-img ${idx === 0 ? 'first' : ''}`}
+            key={`${album}-${idx}`}
+          >
             <img src={album.image} alt="placeholder" />
             <div className="music-info">
               <p className="music-title">{album.title}</p>
@@ -30,7 +34,10 @@ const ArtistContent = () => {
       </ProductCarousel>
       <ProductCarousel show={5} skip={3} title={`EP & Singles`}>
         {singles.map((single, idx) => (
-          <div className={`carousel-img ${idx === 0 ? 'first' : ''}`}>
+          <div
+            className={`carousel-img ${idx === 0 ? 'first' : ''}`}
+            key={`${single}-${idx}`}
+          >
             <img src={single.image} alt="placeholder" />
             <div className="music-info">
               <p className="music-title">{single.title}</p>
@@ -42,7 +49,10 @@ const ArtistContent = () => {
       </ProductCarousel>
       <ProductCarousel show={3} title="Videos">
         {videos.map((video, idx) => (
-          <div className={`carousel-video-img ${idx === 0 ? 'first' : ''}`}>
+          <div
+            className={`carousel-video-img ${idx === 0 ? 'first' : ''}`}
+            key={`${video}-${idx}`}
+          >
             <img src={video.image} alt="placeholder" />
             <div className="music-info">
               <p className="music-title">{video.title}</p>
