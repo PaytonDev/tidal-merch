@@ -7,10 +7,11 @@ interface ProductCarouselProps {
   show: number
   title?: string
   skip?: number
+  className?: string
 }
 
 const ProductCarousel = (props: ProductCarouselProps) => {
-  const { children, show, title, skip } = props
+  const { children, show, title, skip, className } = props
   const [currentIndex, setCurrentIndex] = useState(0)
   const [length, setLength] = useState<number>(children.length)
 
@@ -31,7 +32,7 @@ const ProductCarousel = (props: ProductCarouselProps) => {
     }
   }
   return (
-    <div className="carousel-container-section">
+    <div className={`carousel-container-section ${className}`}>
       <div className="carousel-container">
         <header className="carousel-container-header">
           {title ? <p className="title">{title}</p> : null}

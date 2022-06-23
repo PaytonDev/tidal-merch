@@ -11,6 +11,11 @@ import TouchMe from '../../assets/images/singles-carousel-images/TouchMe.png'
 import BeautifulLiesVideo from '../../assets/images/video-carousel-images/BeautifulLiesVideo.png'
 import AltarVideo from '../../assets/images/video-carousel-images/AltarVideo.png'
 import LittleStoryVideo from '../../assets/images/video-carousel-images/LittleStoryVideo.jpg'
+import June2 from '../../assets/images/tour-date/Jun2.png'
+import June3 from '../../assets/images/tour-date/Jun3.png'
+import June4 from '../../assets/images/tour-date/Jun4.png'
+import June5 from '../../assets/images/tour-date/Jun5.png'
+import June6 from '../../assets/images/tour-date/Jun6.png'
 
 export const artistContent = {
   albums: [
@@ -95,6 +100,43 @@ export const artistContent = {
       image: AltarVideo,
       artist: 'Kehlani',
       time: '4',
+    },
+  ],
+  tourDates: [
+    {
+      image: June2,
+      dateFull: 'June 2nd',
+      event: 'Primavera Sound Festival Weekend | 2022',
+      locationProvince: 'Parc del Forum',
+      locationCountry: 'Barcelona, Spain',
+    },
+    {
+      image: June3,
+      dateFull: 'June 3rd',
+      event: 'Primavera Sound Festival Weekend | 2022',
+      locationProvince: 'Parc del Forum',
+      locationCountry: 'Barcelona, Spain',
+    },
+    {
+      image: June4,
+      dateFull: 'June 4th',
+      event: 'Primavera Sound Festival Weekend | 2022',
+      locationProvince: 'Parc del Forum',
+      locationCountry: 'Barcelona, Spain',
+    },
+    {
+      image: June5,
+      dateFull: 'June 5th',
+      event: 'Primavera Sound Festival Weekend | 2022',
+      locationProvince: 'Parc del Forum',
+      locationCountry: 'Barcelona, Spain',
+    },
+    {
+      image: June6,
+      dateFull: 'June 6th',
+      event: 'Primavera Sound Festival Weekend | 2022',
+      locationProvince: 'Parc del Forum',
+      locationCountry: 'Barcelona, Spain',
     },
   ],
 }

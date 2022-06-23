@@ -4,26 +4,24 @@ import './tour-date-card.styles.scss'
 interface TourDateCardProps {
   idx: number
   img: string
-  title: string
-  location: string
-  dateDay: string
-  dateMonth: string
+  event: string
+  locationProvince: string
+  locationCountry: string
   dateFull: string
 }
 
 const TourDateCard = (p: TourDateCardProps) => {
-  const { idx, img, title, dateMonth, dateDay, dateFull, location } = p
+  const { idx, img, event, dateFull, locationProvince, locationCountry } = p
 
   return (
     <div className={`tour-card ${idx === 0 ? 'first' : ''}`}>
       <img src={img} alt={dateFull} className="tour-date-img" />
-      <div className="tour-date">
-        <p className="tour-month">{dateMonth}</p>
-        <p className="tour-day">{dateDay}</p>
-      </div>
       <div className="tour-card-info">
-        <p className="tour-card-title">{title}</p>
-        <p className="tour-card-location">{location}</p>
+        <p className="tour-card-event">{event}</p>
+        <small className="tour-card-location-province">
+          {locationProvince}
+        </small>
+        <small className="tour-card-location-country">{locationCountry}</small>
       </div>
     </div>
   )

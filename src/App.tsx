@@ -6,7 +6,6 @@ import SignInSignUp from './pages/Sign-In-Page/sign-in.page'
 import { useAppDispatch, useAppSelector } from './redux/hooks'
 import { setCurrentUser } from './redux/features/auth/auth-slice'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
-import { useSelector } from 'react-redux'
 
 const App = () => {
   const dispatch = useAppDispatch()
@@ -26,7 +25,6 @@ const App = () => {
     <div className="App">
       <Routes>
         {/* Configure Routes next */}
-
         <Route
           path="/"
           element={user ? <Home /> : <Navigate replace to="/sign-in" />}
